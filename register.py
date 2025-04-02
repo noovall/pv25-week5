@@ -100,6 +100,11 @@ class FormApp(QWidget):
             self.show_error("Umur harus angka")
             return
         
+        age = int(age)
+        if age < 18 or age > 100:
+            self.show_error("Umur harus antara 18 dan 100")
+            return
+        
         if not re.match(r"^\+62\s\d{3}-\d{4}-\d{4}$", phone):
             self.show_error("Nomor Telp. harus dengan format: +62 999-9999-9999")
             return
